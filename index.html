@@ -123,7 +123,8 @@ function go(s){scr=s;render()}
 function home(){
   $app.innerHTML=`<h1>Stick Figure Body</h1><div class="menu">
   <button id="b1">Work out</button><button id="b2">Glaze Me</button>
-  <button id="b3">${st.dark?'Light Mode':'Dark Mode'}</button></div>`;
+  <button id="b3">${st.dark?'Light Mode':'Dark Mode'}</button></div>
+  ${/^https?:/.test(location.protocol)?'<p class="info" style="margin-top:28px"><a href="Stick_Figure_Body.txt" download="Stick_Figure_Body.txt" style="color:inherit">Download a copy of the app (.txt)</a><br>Rename it to .html to run it from a file.</p>':''}`;
   b1.onclick=()=>go('pick');b2.onclick=()=>go('glaze');
   b3.onclick=()=>{st.dark=!st.dark;document.documentElement.classList.toggle('dark',st.dark);saveProfile();render()};
 }
